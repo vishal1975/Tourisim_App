@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PackBagBuddyLeisureTravelAndTourism">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".tour_description.Description"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />

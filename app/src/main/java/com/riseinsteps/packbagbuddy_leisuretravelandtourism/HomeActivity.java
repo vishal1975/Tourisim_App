@@ -27,11 +27,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     DrawerLayout drawer;
     NavigationView nav_view;
+    ArrayList<Integer> kasol;
+    ArrayList<Integer> kareri;
+    ArrayList<Integer> kedarnath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity_main);
+        setting_image_list();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer);
@@ -51,6 +55,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+    }
+
+    public void setting_image_list(){
+
+
+       kasol=new ArrayList<>();
+        kasol.add(R.drawable.kasol1);
+        kasol.add(R.drawable.kasol3);
+         kareri=new ArrayList<>();
+        kareri.add(R.drawable.kareri_lake1);
+        kareri.add(R.drawable.kareri_lake2);
+         kedarnath=new ArrayList<>();
+        kedarnath.add(R.drawable.kedarnath1);
+        kedarnath.add(R.drawable.kedarnath2);
+        kedarnath.add(R.drawable.kedarnath3);
 
     }
 
@@ -80,7 +100,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         RecyclerView recyclerView=findViewById(R.id.adventure_recycle);
         List<Adventure_Data> adventure_dataList=adventure_data();
-        MyAdventureAdapter myAdventureAdapter=new MyAdventureAdapter(adventure_dataList);
+        MyAdventureAdapter myAdventureAdapter=new MyAdventureAdapter(adventure_dataList,this);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -111,9 +131,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
     public List<Adventure_Data> adventure_data(){
         List<Adventure_Data> adventure_dataList=new ArrayList<>();
-        adventure_dataList.add(new Adventure_Data("₹ 1,000 off",R.drawable.kasol,"Kasol Trek","5 Days, 3 Night","₹ 6000"));
-        adventure_dataList.add(new Adventure_Data("₹ 1,500 off",R.drawable.kareri_lake_trek,"Kareri Lake Trek","4 Days, 3 Night","₹ 5000"));
-        adventure_dataList.add(new Adventure_Data("₹ 1,000 off",R.drawable.kedarnath,"Kedarnath Tour","6 Days, 4 Night","₹ 9000"));
+        adventure_dataList.add(new Adventure_Data("₹ 1,000 off",R.drawable.kasol,"Kasol Trek","5 Days, 3 Night","₹ 6000",getString(R.string.kasol_Trek),kasol));
+        adventure_dataList.add(new Adventure_Data("₹ 1,500 off",R.drawable.kareri_lake_trek,"Kareri Lake Trek","4 Days, 3 Night","₹ 5000",getString(R.string.kareri_lake),kareri));
+        adventure_dataList.add(new Adventure_Data("₹ 1,000 off",R.drawable.kedarnath,"Kedarnath Tour","6 Days, 4 Night","₹ 9000",getString(R.string.kedarnath),kedarnath));
     return adventure_dataList;
     }
     public List<PopularSportsData> popularSportsData(){
